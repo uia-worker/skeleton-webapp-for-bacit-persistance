@@ -9,7 +9,7 @@ Starte en databasetjeneste (<my/own/datadir> er en lokal mappe, så det må man 
 ```console
 $ docker run --rm --name is201-mariadb -p 127.0.0.1:3306:3306/tcp -v <my/own/datadir>:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<mysql_root_passord> -d mariadb:latest
 ```
-Bruke maven 2 for å kompilere og linke kode og lage en .war file (webapplikasjonsfil)
+Bruke maven 2 for å kompilere og linke kode og lage en .war file (webapplikasjonsfil); må utføres fra den mappen hvor filstrukturen for Java webapplikasjonen ligger (jeg genererte filstrukturen vha. Maven arktetyper)
 ```console
 $ docker run --rm --name java_maven2_build -it -v "$PWD":/usr/src/app  -v "$HOME"/.m2:/root/.m2 janisdocker/javabuilder clean install
 ```
@@ -18,5 +18,4 @@ Starte Payara server (tidligere Glassfish)
 $ docker run --rm --name my-payara -p 8080:8080 -p 4848:4848 -v $PWD/target:/opt/payara/deployments payara/server-full
 ```
 ```console
-<my/own/datadir> skal erstattes med en mappe du ønsker å lagre data som blir generert i kontainer (f.eks. $HOME/mysql_data), hvor $HOME er en miljøvariabel i Linux og macOS miljøer, så det gjelder også WSL 2 på Windows 10 Home Edition)
-```
+**<my/own/datadir>** skal erstattes med en mappe du ønsker å lagre data som blir generert i kontainer (f.eks. $HOME/mysql_data), hvor $HOME er en miljøvariabel i Linux og macOS miljøer, så det gjelder også WSL 2 på Windows 10 Home Edition)
