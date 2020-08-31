@@ -9,13 +9,13 @@ Starte en databasetjeneste (<my/own/datadir> er en lokal mappe, så det må man 
 ```console
 $ docker run --rm --name is201-mariadb -p 127.0.0.1:3306:3306/tcp -v <my/own/datadir>:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<mysql_root_passord> -d mariadb:latest
 ```
-Bruke maven 2 for å kompilere og linke kode og lage en .war file (webapplikasjonsfil); må utføres fra den mappen hvor filstrukturen for Java webapplikasjonen ligger (jeg genererte filstrukturen vha. Maven arktetyper)
+Bruke maven 2 for å kompilere og linke kode og lage en WAR-fil (webapplikasjonsfil); må utføres fra den mappen hvor filstrukturen for Java webapplikasjonen ligger (jeg genererte filstrukturen vha. Maven arktetyper)
 ```console
 $ docker run --rm --name java_maven2_build -it -v "$PWD":/usr/src/app  -v "$HOME"/.m2:/root/.m2 janisdocker/javabuilder clean install
 ```
-Starte Payara server (tidligere Glassfish)
+Starte Payara server (tidligere Glassfish; OBS! legg merke til at kun WAR-fil med applikasjons-spesifikt navn kopieres over til deployeringsmappen inne i kontaineren)
 ```console
-$ docker run --rm --name my-payara -p 8080:8080 -p 4848:4848 -v $PWD/target:/opt/payara/deployments payara/server-full
+$ docker run --rm --name my-payara -p 8080:8080 -p 4848:4848 -v $PWD/target/servletannotation.war:/opt/payara/deployments/servletannotation.war payara/server-full
 ```
 **$PWD** er miljøvariabelen i Linux/Unix miljøer som står for "Print Working Directory" og den kan brukes for å representere den mappen som man utfører programmet i
 
