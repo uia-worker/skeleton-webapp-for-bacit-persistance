@@ -1,9 +1,11 @@
 # skeleton-webapp-for-bacit-persistance
 Testing av persistens med mariadb, maven 2 og payara (IS-201/202 høsten 2020)
 
-Bruk "Fork" først og gjør repositorien din egen (i ditt github konto).
+Bruk "Fork" først og gjør repositorien din egen (i ditt github konto med <ditt_brukernavn>).
 Så kan du klone den lokalt
-$ git clone https://github.com/uia-worker/skeleton-webapp-for-bacit-persistance.git
+```console
+$ git clone https://github.com/<ditt_brukernavn>/skeleton-webapp-for-bacit-persistance.git
+```
 
 Starte en databasetjeneste (<my/own/datadir> er en lokal mappe, så det må man endre; <mysql_root_passord> er passordet til database administrator som har alle rettighetene mot databasen, inkludert sletting av alt)
 ```console
