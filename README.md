@@ -21,6 +21,6 @@ $ docker run --rm --name my-payara -p 8080:8080 -p 4848:4848 -v $PWD/target/serv
 ```
 **$PWD** er miljøvariabelen i Linux/Unix miljøer som står for "Print Working Directory" og den kan brukes for å representere den mappen som man utfører programmet i
 
-**$HOME** er miljøvariabelen i Linux/Unix miljøer som oversettes til hjemmemappe (vanlig med /home/<dittbrukernavn>
+**$HOME** er miljøvariabelen i Linux/Unix miljøer som oversettes til hjemmemappe (vanlig med /home/<ditt_brukernavn>)
 
 **<my/own/datadir>** skal erstattes med en mappe du ønsker å lagre data som blir generert i kontainer (f.eks. $HOME/mysql_data), hvor $HOME er en miljøvariabel i Linux og macOS miljøer, så det gjelder også WSL 2 på Windows 10 Home Edition)
